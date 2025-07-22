@@ -1,0 +1,18 @@
+// Example program with memory load/store and ALU ops and jump 
+// Sample program  3  
+// LWD , SWD, Jump , Branch (precict false (true predict)) , Forwording 
+		
+	memory[0] = {6'd14, 4'd0, 4'd0, 4'd0, 14'd3};      // J + 3                 <- unconditional jump	
+	memory[1]  = {6'd5,  4'd1, 4'd0, 4'd0, 14'd20};     // ADDI R1, R0, 20
+	memory[2]  = {6'd5,  4'd2, 4'd0, 4'd0, 14'd40};     // ADDI R2, R0, 40
+	memory[3]  = {6'd7,  4'd4, 4'd1, 4'd0, 14'd4};     // SW R4, [R1 + 4]     <- normal store
+	memory[4]  = {6'd6,  4'd3, 4'd1, 4'd0, 14'd4};      // LD R3, [R1 + 4]      <- load
+	memory[5]  = {6'd0,  4'd4, 4'd3, 4'd2, 14'd0};      // OR R4, R3, R2        <- causes stall (uses result of load)
+	memory[6]  = {6'd10, 4'd0, 4'd6, 4'd0, 14'd3};      // BZ R6, 3          <- if R6 == 0, skip next 3
+	memory[7]  = {6'd8,  4'd6, 4'd1, 4'd0, 14'd4};      // LWD R6, [R1 + 4]     <- double load
+	memory[8]  = {6'd2,  4'd8, 4'd6, 4'd2, 14'd0};      // SUB R8, R6, R2       <- uses double load)
+	memory[9]  = {6'd9,  4'd6, 4'd1, 4'd0, 14'd8};      // SWD R6, [R1 + 8]     <- double store
+	memory[10]  = {6'd7,  4'd4, 4'd1, 4'd0, 14'd12};     // SW R4, [R1 + 12]     <- normal store
+	memory[11]  = {6'd5,  4'd7, 4'd0, 4'd0, 14'd100};    // ADDI R7, R0, 100     
+	memory[12] = {6'd4,  4'd8, 4'd0, 4'd0, 14'd200};    // ORI R8, R0, 200    
+	memory[13] = {6'd5,  4'd9, 4'd8, 4'd0, 14'd255};    // ADDI R9, R8, 255     
