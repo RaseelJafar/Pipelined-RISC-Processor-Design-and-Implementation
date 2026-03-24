@@ -12,4 +12,8 @@ This project is a Verilog implementation of a 32-bit pipelined RISC processor. I
 - Testbenches for functional verification
 - Datapath and control unit designed for pipelining efficiency
 
+## Contributors
 
+- [Raseel Jafar](https://github.com/RaseelJafar)
+- [Aya Abusnaina](https://github.com/AyaAbuSneineh)
+- [Ahmad Sous](https://github.com/AhmadShSous)
